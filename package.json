@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "PORT=3001 node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "@firebase/app-types": "^0.1.0",
+    "cors": "^2.8.4",
+    "firebase-admin": "^5.9.1",
+    "pusher": "^1.5.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
