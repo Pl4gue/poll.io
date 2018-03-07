@@ -27,6 +27,7 @@ var pusher = new Pusher({
 
 app.get('/getpoll', (req, res) => {
 	res.send('RES');
+	// TODO: Implement getting records from database
 });
 
 app.post('/submitpoll', (req, res) => {
@@ -35,6 +36,7 @@ app.post('/submitpoll', (req, res) => {
 	});
 
 	console.log(req);
+	// TODO: Implement pushing vote to database
 
 	return res.json({ success: true, message: 'Your votes have been proccessed. Thank you!' });
 });
