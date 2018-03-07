@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import PersistentDrawer from './components/PersistentDrawer';
 
 class App extends Component {
   state = {votes: []}
@@ -12,12 +13,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Votes</h1>
-        {this.state.votes.map(vote =>
-          <div key={vote.id}>{vote.vote.author} voted {vote.vote.vote}</div>
-        )}
-      </div>
+      // <div className="App">
+      //   <h1>Votes</h1>
+      //   {this.state.votes.map(vote=>
+      //     <div key={vote.id}>{vote.vote.author} voted {vote.vote.vote}</div>
+      //   )}
+      // </div> 
+      <PersistentDrawer/>
     );
   }
 }
