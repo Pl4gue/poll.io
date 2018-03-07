@@ -1,13 +1,13 @@
-const express = require("express");
-const path = require("path");
-const bodyparser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const path = require('path');
+const bodyparser = require('body-parser');
+const cors = require('cors');
 const Pusher = require('pusher');
 
 const app = express();
 
 // Set public folder
-app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, 'client')));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -18,26 +18,26 @@ app.use(cors());
 
 // Pusher
 var pusher = new Pusher({
-  appId: '485099',
-  key: '279e1b477e33bd9e19a4',
-  secret: '823fc6980ff75283010c',
-  cluster: 'eu',
-  encrypted: true
+	appId: '485099',
+	key: '279e1b477e33bd9e19a4',
+	secret: '823fc6980ff75283010c',
+	cluster: 'eu',
+	encrypted: true
 });
 
 app.get('/getpoll', (req, res) => {
-  res.send("RES")
-})
+	res.send('RES');
+});
 
 app.post('/submitpoll', (req, res) => {
-  pusher.trigger('poll', 'voting', {
-    votes: req.body.votes
-  });
+	pusher.trigger('poll', 'voting', {
+		votes: req.body.votes
+	});
 
-  console.log(req)
+	console.log(req);
 
-  return res.json({ success: true, message: "Your votes have been proccessed. Thank you!" });
-})
+	return res.json({ success: true, message: 'Your votes have been proccessed. Thank you!' });
+});
 
 const port = 3000;
 
