@@ -1,46 +1,45 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require("express");
+const path = require("path");
+const bodyparser = require("body-parser");
+const cors = require("cors");
+const Pusher = require('pusher');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const app = express();
 
-var app = express();
+// Set public folder
+app.use(express.static(path.join(__dirname, "client")));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// Bodyparser middleware
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// CORS
+app.use(cors());
 
-app.use('/', index);
-app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+// Pusher
+var pusher = new Pusher({
+  appId: '485099',
+  key: '279e1b477e33bd9e19a4',
+  secret: '823fc6980ff75283010c',
+  cluster: 'eu',
+  encrypted: true
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.get('/getpoll', (req, res) => {
+  res.send("RES")
+})
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.post('/submitpoll', (req, res) => {
+  pusher.trigger('poll', 'voting', {
+    votes: req.body.votes
+  });
 
-module.exports = app;
+  console.log(req)
+
+  return res.json({ success: true, message: "Your votes have been proccessed. Thank you!" });
+})
+
+const port = 3000;
+
+// Start server
+app.listen(port, () => console.log(`Server started on port ${port}`));
