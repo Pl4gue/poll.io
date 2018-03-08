@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "install": "yarn install && (cd client && yarn install)",
+    "install": "yarn && (cd client && yarn)",
     "start": "concurrently \"cd client && yarn start\" \"yarn start-server\"",
     "dev": "concurrently \"cd client && yarn start\" \"yarn dev-server\"",
     "start-server": "PORT=3001 node ./bin/www",
