@@ -16,12 +16,21 @@ yarn install
 ```
 
 #### Start Express server and React frontend
-Before doing this step, make sure you have nothing running on both port 3000 and port 3001.
+Before doing this step, make sure you have nothing running on both port 5000 and port 3000.
 
-You may change these ports in `package.json` by replacing `export PORT=3001` in the `scripts` section
-with your own port number for Express. Same the React port number. **If you do this, make sure that the proxy port in `client/package.json` is still the same as your Express port number. **
+You may change these ports in `package.json` by replacing 
+```
+var port = normalizePort(process.env.PORT || '5000');
+```
+in `./bin/www` with your own port number for Express. **If you do this, make sure that the proxy port in `client/package.json` is still the same as your Express port number.**
 
 If you have ensured this, run
 ```
 yarn dev
+```
+
+#### See Local build
+Simply visit
+```
+localhost:5000 //or whatever port you defined
 ```
