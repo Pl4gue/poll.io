@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 
 import '../styles/css/AddPollView.css';
 
-export default class AddPollView extends Component {
+export default class AddPollView extends React.Component {
 	render() {  
 		return(
-			<div className="App">
-				<h1>Add a Vote</h1>
+			<div className={classNames('root')}>
+				<h1>Add a Poll</h1>
 			</div>
 		);
 	} 
