@@ -10,9 +10,13 @@ let postVote = require('./routes/postVote');
 
 const app = express();
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-// Set public folder
-app.use(express.static(path.join(__dirname, 'client')));
+// "catchall", send back React's index.html file on 404
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 // Bodyparser middleware
 app.use(bodyparser.json());
