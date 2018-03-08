@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import '../styles/css/AddPollView.css';
+import '../styles/css/NewPollView.css';
 
-export default class AddPollView extends React.Component {
+export default class NewPollView extends React.Component {
 	render() {  
 		return(
 			<div className={classNames('root')}>

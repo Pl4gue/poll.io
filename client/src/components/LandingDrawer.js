@@ -18,18 +18,19 @@ import ComputerIcon from 'material-ui-icons/Computer';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
 import DashboardView from './DashboardView';
-import AddPollView from './AddPollView';
+import NewPollView from './NewPollView';
 import SettingsView from './SettingsView';
 import AboutView from './AboutView';
 
 import theme from '../styles/LandingDrawerStyle';
+import Strings from '../assets/Strings';
 
 class LandingDrawer extends React.Component {
   state = {
     open: false,
     anchor: 'left',
-    contentView: 'polls',
-    appBarTitle: 'Dashboard'
+    contentView: 'dashboard',
+    appBarTitle: Strings.dashboard
   };
 
   handleDrawerOpen = () => {
@@ -50,19 +51,19 @@ class LandingDrawer extends React.Component {
     let title;
     switch (dest) {
       case 'dashboard':
-        title = 'Dashboard'
+        title = Strings.dashboard
         break;
-      case 'addPoll':
-        title = 'Add A Poll'
+      case 'newPoll':
+        title = Strings.newPoll
         break;
       case 'settings':
-        title = 'Settings'
+        title = Strings.settings
         break;
       case 'about':
-        title = 'About poll.io'
+        title = Strings.about
         break;
       default:
-        title = 'Dashboard'
+        title = Strings.dashboard
     }
     this.setState({
       contentView: dest,
@@ -93,22 +94,22 @@ class LandingDrawer extends React.Component {
         <List>
           <ListItem button onClick={() => this.handleChangeContentContainer('dashboard')}>
             <PollIcon />
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary={Strings.dashboard} />
           </ListItem>
-          <ListItem button onClick={() => this.handleChangeContentContainer('addPoll')}>
+          <ListItem button onClick={() => this.handleChangeContentContainer('newPoll')}>
             <AddIcon />
-            <ListItemText primary="Add Poll" />
+            <ListItemText primary={Strings.newPoll} />
           </ListItem>
         </List>
         <Divider />
         <List>
           <ListItem button onClick={() => this.handleChangeContentContainer('settings')}>
             <SettingsIcon />
-            <ListItemText primary="Settings" />
+            <ListItemText primary={Strings.settings} />
           </ListItem>
           <ListItem button onClick={() => this.handleChangeContentContainer('about')}>
             <ComputerIcon />
-            <ListItemText primary="About poll.io" />
+            <ListItemText primary={Strings.about} />
           </ListItem>
         </List>
       </Drawer>
@@ -118,8 +119,8 @@ class LandingDrawer extends React.Component {
       switch (this.state.contentView) {
         case 'polls':
           return ( <DashboardView /> )
-        case 'addPoll':
-          return ( <AddPollView /> )
+        case 'newPoll':
+          return ( <NewPollView /> )
         case 'settings':
           return ( <SettingsView /> )
         case 'about':
