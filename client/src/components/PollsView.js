@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-export default class PollsDashboard extends Component {
+import '../styles/css/PollsView.css';
+
+export default class PollsView extends Component {
     state = {votes: []}
 
     componentDidMount() {
