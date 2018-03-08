@@ -106,7 +106,7 @@ class LandingDrawer extends React.Component {
         case 'about':
           return ( <AboutView /> )
         default:
-          return ( <PollsView /> )
+          return ( <DashboardView /> )
       }
     }
 
