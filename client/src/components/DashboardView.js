@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Paper from 'material-ui/Paper';
-import Grid from 'material-ui/Grid';
 import classNames from 'classnames';
+
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
 
 import '../styles/css/DashboardView.css';
 
@@ -20,11 +21,23 @@ export default class DashboardView extends Component {
 	
 	render() {  
 		return(
-			<div className={classNames('App')}>
-				<h1>Votes</h1>
-				{this.state.votes.map(vote=>
-					<div key={vote.id}>{vote.vote.author} voted {vote.vote.vote}</div>
-				)}
+			<div className={classNames('root')}>
+				<Grid container spacing={24} direction={'row'}>
+					<Grid container direction={'row'}>
+						<Grid item xs={6}>
+							<Paper className={classNames('paper')}>A</Paper>
+						</Grid>
+						<Grid item xs={6}>
+							<Paper className={classNames('paper')}>B</Paper>
+						</Grid>
+						<Grid item xs={6}>
+							<Paper className={classNames('paper')}>C</Paper>
+						</Grid>
+						<Grid item xs={6}>
+							<Paper className={classNames('paper')}>D</Paper>
+						</Grid>
+					</Grid>
+				</Grid>
 			</div>
 		);
 	} 
