@@ -17,7 +17,7 @@ const styles = theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
-		backgroundImage: theme.gradient('120deg', '#84fab0 0%', '#8fd3f4 100%')
+		backgroundColor: '#00d2d3'
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
