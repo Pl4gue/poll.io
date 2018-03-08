@@ -16,9 +16,11 @@ import MenuIcon from 'material-ui-icons/Menu';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ComputerIcon from 'material-ui-icons/Computer';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
-import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 
-import PollsDashboard from './PollsDashboard';
+import PollsView from './PollsView';
+import AddPollView from './AddPollView';
+import SettingsView from './SettingsView';
+import AboutView from './AboutView';
 
 import theme from '../styles/LandingDrawerStyle';
 
@@ -26,6 +28,7 @@ class LandingDrawer extends React.Component {
   state = {
     open: false,
     anchor: 'left',
+    contentView: 'polls',
   };
 
   handleDrawerOpen = () => {
@@ -42,8 +45,15 @@ class LandingDrawer extends React.Component {
     });
   };
 
+  handleChangeContentContainer = (dest) => {
+    this.setState({
+      contentView: dest
+    });
+    this.handleDrawerClose();
+  }
+
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     const { anchor, open } = this.state;
 
     const drawer = (
@@ -57,33 +67,48 @@ class LandingDrawer extends React.Component {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={this.handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <ChevronLeftIcon />
           </IconButton>
         </div>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => this.handleChangeContentContainer('polls')}>
             <PollIcon />
             <ListItemText primary="Polls" />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={() => this.handleChangeContentContainer('addPoll')}>
             <AddIcon />
             <ListItemText primary="Add Poll" />
           </ListItem>
         </List>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => this.handleChangeContentContainer('settings')}>
             <SettingsIcon />
             <ListItemText primary="Settings" />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={() => this.handleChangeContentContainer('about')}>
             <ComputerIcon />
             <ListItemText primary="About poll.io" />
           </ListItem>
         </List>
       </Drawer>
     );
+
+    const contentContainer = () => {
+      switch (this.state.contentView) {
+        case 'polls':
+          return ( <PollsView /> )
+        case 'addPoll':
+          return ( <AddPollView /> )
+        case 'settings':
+          return ( <SettingsView /> )
+        case 'about':
+          return ( <AboutView /> )
+        default:
+          return ( <PollsView /> )
+      }
+    }
 
     let before = null;
     let after = null;
@@ -126,7 +151,7 @@ class LandingDrawer extends React.Component {
           >
             <div className={classes.drawerHeader} />
             <Typography>{
-              <PollsDashboard />
+              contentContainer()
             }</Typography>
           </main>
           {after}
