@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import PersistentDrawer from './components/PersistentDrawer';
+import LandingDrawer from './components/LandingDrawer';
 
 class App extends Component {
 	render() {
 		return (
-			<PersistentDrawer />
+			<LandingDrawer />
 		);
 	}
 }
