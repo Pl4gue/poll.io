@@ -30,4 +30,7 @@ app.use('/users', users);
 app.use('/getpoll', getpoll);
 app.use('/postVote', postVote);
 
-module.exports = app;
+const port = process.env.PORT || 5000;
+app.listen(port);
+
+console.log(`Password generator listening on ${port}`);
