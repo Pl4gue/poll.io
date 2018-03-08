@@ -1,2 +1,17 @@
-.App
+@function get-vw($target) 
+  $vw-context: (1000*.01) * 1px
+  @return ($target/$vw-context) * 1vw
+
+    
+.root
+    flex-grow: 1
+    padding: 20px
+
+.paper
     text-align: center
+    color: #aaaaaa
+    height: get-vw(270px) 
+
+@media only screen and (max-width: 480px)
+	.paper
+		width: 100%
