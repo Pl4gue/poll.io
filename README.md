@@ -1,4 +1,5 @@
-# Poll.io - A Fullstack Realtime Polling Application
+# poll.io - A Fullstack Realtime Polling Application
+poll.io is built on ReactJS on the Front-End and ExpressJS on the Back-End.
 
 ## Local Build Instructions
 Make sure you have either `yarn` or `npm` installed. (We recommend `yarn`)
