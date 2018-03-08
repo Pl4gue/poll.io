@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 node .bin/www",
+    "start": "PORT=3001 node ./bin/www",
     "dev": "concurrently \"cd client && yarn start\" \"yarn dev-server\"",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
     "start-server": "PORT=3001 node ./bin/www",
