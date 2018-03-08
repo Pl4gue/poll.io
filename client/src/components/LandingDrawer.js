@@ -141,4 +141,4 @@ LandingDrawer.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(LandingDrawer);
+export default withStyles(theme, { withTheme: true })(LandingDrawer);
