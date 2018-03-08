@@ -1,6 +1,6 @@
 const drawerWidth = 240;
 
-export default const styles = theme => ({
+const styles = theme => ({
 	root: {
 		flexGrow: 1,
 	},
@@ -17,6 +17,7 @@ export default const styles = theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
+		backgroundImage: theme.gradient('120deg', '#84fab0 0%', '#8fd3f4 100%')
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -77,3 +78,5 @@ export default const styles = theme => ({
 		marginRight: 0,
 	},
 });
+
+export default styles;

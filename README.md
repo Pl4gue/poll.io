@@ -32,5 +32,8 @@ yarn dev
 #### See Local build
 Simply visit
 ```
-localhost:5000 //or whatever port you defined
+localhost:5000 // or whatever port you defined
 ```
+
+### Troubleshoot React development
+Make sure to disable cache for proper live reloading of React
