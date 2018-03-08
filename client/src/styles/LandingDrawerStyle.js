@@ -19,6 +19,9 @@ const styles = theme => ({
 		}),
 		backgroundColor: '#00d2d3'
 	},
+	dynamicAppBarTitle: {
+		fontWeight: 'bold'
+	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
 		transition: theme.transitions.create(['margin', 'width'], {

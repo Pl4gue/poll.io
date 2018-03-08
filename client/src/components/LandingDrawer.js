@@ -29,6 +29,7 @@ class LandingDrawer extends React.Component {
     open: false,
     anchor: 'left',
     contentView: 'polls',
+    appBarTitle: 'Dashboard'
   };
 
   handleDrawerOpen = () => {
@@ -46,8 +47,26 @@ class LandingDrawer extends React.Component {
   };
 
   handleChangeContentContainer = (dest) => {
+    let title;
+    switch (dest) {
+      case 'dashboard':
+        title = 'Dashboard'
+        break;
+      case 'addPoll':
+        title = 'Add A Poll'
+        break;
+      case 'settings':
+        title = 'Settings'
+        break;
+      case 'about':
+        title = 'About poll.io'
+        break;
+      default:
+        title = 'Dashboard'
+    }
     this.setState({
-      contentView: dest
+      contentView: dest,
+      appBarTitle: title
     });
     this.handleDrawerClose();
   }
@@ -72,9 +91,9 @@ class LandingDrawer extends React.Component {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={() => this.handleChangeContentContainer('polls')}>
+          <ListItem button onClick={() => this.handleChangeContentContainer('dashboard')}>
             <PollIcon />
-            <ListItemText primary="Polls" />
+            <ListItemText primary="Dashboard" />
           </ListItem>
           <ListItem button onClick={() => this.handleChangeContentContainer('addPoll')}>
             <AddIcon />
@@ -139,6 +158,7 @@ class LandingDrawer extends React.Component {
               </IconButton>
               <Typography variant="title" color="inherit" noWrap>
                 poll.io
+                <span className={classNames(classes.dynamicAppBarTitle)}> - {this.state.appBarTitle}</span>
               </Typography>
             </Toolbar>
           </AppBar>
