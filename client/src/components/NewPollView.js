@@ -7,7 +7,7 @@ export default class NewPollView extends React.Component {
 	render() {  
 		return(
 			<div className={classNames('root')}>
-				<h1>Add a Poll</h1>
+				<h1>Add a new Poll</h1>
 			</div>
 		);
 	} 
