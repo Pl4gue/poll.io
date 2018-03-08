@@ -158,7 +158,7 @@ class LandingDrawer extends React.Component {
           </ListItem>
           <ListItem button>
             <ComputerIcon />
-            <ListItemText primary="Spam" />
+            <ListItemText primary="About poll.io" />
           </ListItem>
         </List>
       </Drawer>
@@ -192,7 +192,7 @@ class LandingDrawer extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap>
-                Poll.io
+                poll.io
               </Typography>
             </Toolbar>
           </AppBar>
