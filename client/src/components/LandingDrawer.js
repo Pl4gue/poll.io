@@ -17,7 +17,7 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import ComputerIcon from 'material-ui-icons/Computer';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
-import PollsView from './PollsView';
+import DashboardView from './DashboardView';
 import AddPollView from './AddPollView';
 import SettingsView from './SettingsView';
 import AboutView from './AboutView';
@@ -98,7 +98,7 @@ class LandingDrawer extends React.Component {
     const contentContainer = () => {
       switch (this.state.contentView) {
         case 'polls':
-          return ( <PollsView /> )
+          return ( <DashboardView /> )
         case 'addPoll':
           return ( <AddPollView /> )
         case 'settings':

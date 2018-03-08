@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
+import Grid from 'material-ui/Grid';
 import classNames from 'classnames';
 
-import '../styles/css/PollsView.css';
+import '../styles/css/DashboardView.css';
 
-export default class PollsView extends Component {
+export default class DashboardView extends Component {
     state = {
     	votes: []
     }
