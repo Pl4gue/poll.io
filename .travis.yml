@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- node
+install:
+- yarn install
+- cd client/ && yarn install
+script:
+- yarn start
+deploy:
+  provider: heroku
+  api_key:
+    secure: gR3RvieY5o/Egx+Hf4uF/mpKKyvXz9cqq83hhAEXX52eh0rBzd/tXO2PBKSsZcskegDS8dTtXhAHtqIhfvoTzLA2p3nqhQR7yMtQgKc3waNfGF7/naZafSMuXNRjJ8ENJuuftvmtA96fVV4x7VcrKVaIDFmdJmeUdCFH7n0dWeKyjN2pPkNo8AHhmoT1tmoZUbD6eQaIvxcvw8GbuUFlh2T1DjO9nVYVyOEQOobHbtrPvfZkrQnPLSj+JhB5J4WQndockJbEfBa43ZTavCguFNv+gmhTDRFBeBv/SxMmZWz2SUgmdi2BUCMRf3ieCbbHYi8Kfp4N51Dgw5BppFdlKl1g4cKfMpQ/J7xMm03nW421m+LC8eoqJVyBfzCTO0FjoWo660G+PgbRCmWe1Y3R/FbMV7nDbpEYnYnwAkydhPsblwNs7RM1isiSFqhfrNebZVUQZqGyOxpMANJwfw5HivcAw9/2DRZNkBX3nNuV/gDTobbv2/zyEeouBwNTyhOLvkoz1jwXYrLvcOlFienGZDuulssi80aA9YIwGBiB/sBTTDjgW+/7PuJaY7shAF6zT8j7EbbUtg/HpEcTMaVLbv9+AAY0O2qTEMNs1Q/XcgAGvO2ZfXGfZt0fg+jNTLBDOjSl3YlxY/ZYU1Lg0peTeSR6pN7gntaLHFeyVJ6ByVk=
+  app: calm-wave-39038
+  on:
+    repo: Pl4gue/poll.io
