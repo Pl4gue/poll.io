@@ -1,21 +1,21 @@
 # poll.io - A Fullstack Realtime Polling Application
 poll.io is built on ReactJS on the Front-End and ExpressJS on the Back-End.
 
-# Local Build Instructions
+## Local Build Instructions
 Make sure you have either `yarn` or `npm` installed. (We recommend `yarn`)
 
-## Installing all dependencies of the server
+### Installing all dependencies of the server
 ```
 yarn install
 ```
 
-## Installing all dependencies of the client
+### Installing all dependencies of the client
 ```
 cd client/
 yarn install
 ```
 
-## Start Express server and React frontend
+### Start Express server and React frontend
 Before doing this step, make sure you have nothing running on both port 5000 and port 3000.
 
 You may change these ports in `package.json` by replacing 
@@ -29,7 +29,7 @@ in `./bin/www` with your own port number for Express. **If you do this, make sur
 yarn dev
 ```
 
-## See Local build
+### See Local build
 Simply visit
 ```
 localhost:5000 // or whatever port you defined
