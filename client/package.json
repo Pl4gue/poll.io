@@ -14,7 +14,7 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
+    "build-css": "node-sass-chokidar src/styles/sass -o src/styles/css",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "serve": "serve -s build -p 3000",
