@@ -11,7 +11,8 @@
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-select": "^1.2.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/sass -o src/styles/css && node-sass-chokidar src/index.scss -o src/",
