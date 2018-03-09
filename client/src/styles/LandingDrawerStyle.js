@@ -17,7 +17,7 @@ const styles = theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
-		backgroundColor: '#00d2d3'
+		background: 'linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%)'
 	},
 	dynamicAppBarTitle: {
 		fontWeight: 'bold'
@@ -45,6 +45,7 @@ const styles = theme => ({
 	drawerPaper: {
 		position: 'relative',
 		width: drawerWidth,
+		background: 'linear-gradient(180deg, #84fab0 0%, #8fd3f4 100%)'
 	},
 	drawerHeader: {
 		display: 'flex',
@@ -53,9 +54,12 @@ const styles = theme => ({
 		padding: '0 8px',
 		...theme.mixins.toolbar,
 	},
+	drawerItemText: {
+		color: '#222f3e',
+	},
 	content: {
 		flexGrow: 1,
-		backgroundColor: theme.palette.background.default,
+		background: 'linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);',
 		padding: theme.spacing.unit * 3,
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
