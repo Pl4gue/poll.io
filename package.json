@@ -1,24 +1,35 @@
 {
   "name": "poll.io",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 node ./bin/www",
-    "dev": "PORT=3001 nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "concurrently \"cd client/ && yarn start\" \"yarn dev-server\"",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
+    "start-server": "node ./bin/www",
+    "dev-server": "nodemon ./bin/www"
   },
   "dependencies": {
-    "@firebase/app-types": "^0.1.0",
     "body-parser": "~1.18.2",
+    "concurrently": "^3.5.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.15.5",
-    "firebase-admin": "^5.9.1",
     "jade": "~1.11.0",
     "mongoose": "^5.0.9",
+    "firebase-admin": "^5.9.1",
+    "mongodb": "^3.0.4",
+    "mongoose": "^5.0.9",
     "morgan": "~1.9.0",
-    "nodemon": "^1.17.1",
-    "pusher": "^1.5.1",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "esformatter": "^0.10.0",
+    "esformatter-jsx": "^8.0.1",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.17.1"
   }
 }
