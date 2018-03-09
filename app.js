@@ -2,19 +2,15 @@ const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-
-let index = require('./routes/index');
-let getpoll = require('./routes/getPoll');
-let postVote = require('./routes/postVote');
+const socketio = require('socket.io')
 
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build/')));
+// DB Config
+require('./config/dbconfig.js');
 
-app.get('/favicon.ico', (req, res) => {
-	res.sendFile(path.join(__dirname+'/client/build/favicon.ico'));
-});
+// Set public folder
+app.use(express.static(path.join(__dirname, 'client')));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -23,8 +19,8 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // CORS
 app.use(cors());
 
-app.use('/', index);
-app.use('/getpoll', getpoll);
-app.use('/postVote', postVote);
+// Socket.io
 
-module.exports = app;
+// TODO: add getpoll, getpollslisting, postpoll und postvote
+
+// Starting server handled by ./bin/www
