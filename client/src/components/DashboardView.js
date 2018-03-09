@@ -55,7 +55,7 @@ export default class DashboardView extends Component {
 			<div className={classNames('root')}>
 				<Grid container spacing={24} direction={'row'}>
 					<Grid container direction={'row'}>
-						<Grid item xs={6}>
+						<Grid item xs={12} sm={6}>
 							<Paper className={classNames('paper')}>
 								<Bar
 									data={data}
@@ -76,16 +76,16 @@ export default class DashboardView extends Component {
 								/>
 							</Paper>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item xs={12} sm={6}>
 							<Paper className={classNames('paper')}>
 							</Paper>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item xs={12} sm={6}>
 							<Paper className={classNames('paper')}>
 								<PollListTile />							
 							</Paper>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item xs={12} sm={6}>
 							<Paper className={classNames('paper')}>D</Paper>
 						</Grid>
 					</Grid>
