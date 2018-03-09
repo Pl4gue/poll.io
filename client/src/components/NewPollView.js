@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import List from 'material-ui';
 
 import '../styles/css/NewPollView.css';
 
