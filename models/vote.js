@@ -11,3 +11,8 @@ const VoteSchema = new Schema({
     Answers: [{ AnswerId: Number }] // Id of the answer(s)
   }]
 })
+
+// Create collection and add Schema
+const Vote = mongoose.model('Vote', VoteSchema)
+
+module.exports = Vote
