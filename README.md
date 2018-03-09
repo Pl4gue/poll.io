@@ -29,6 +29,13 @@ in `./bin/www` with your own port number for Express. **If you do this, make sur
 yarn dev
 ```
 
+### Sass watch
+For live Sass-compiling:
+```
+cd client/
+yarn watch-css 
+```
+
 ### See Local build
 Simply visit
 ```
@@ -36,4 +43,4 @@ localhost:5000 // or whatever port you defined
 ```
 
 ## Troubleshoot React development
-Make sure to disable cache for proper live reloading of React
+Make sure to disable cache in your browser for proper live reloading of React.
