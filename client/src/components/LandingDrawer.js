@@ -2,13 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
-import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
+import { Drawer, AppBar, Toolbar, Typography, Divider, IconButton } from 'material-ui';
 import List, { ListItem, ListItemText } from 'material-ui/List';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
 
 import AddIcon from 'material-ui-icons/Add';
 import PollIcon from 'material-ui-icons/Poll';

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {Bar} from 'react-chartjs-2';
 import classNames from 'classnames';
 
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
+import { Grid, Paper } from 'material-ui';
+
+import PollListTile from './dashboard/PollListTile';
 
 import '../styles/css/DashboardView.css';
 
@@ -32,6 +33,8 @@ export default class DashboardView extends Component {
 					break;
 				case "OS X":
 					t3++;
+					break;
+				default:
 					break;
 			}
 		});
@@ -74,10 +77,13 @@ export default class DashboardView extends Component {
 							</Paper>
 						</Grid>
 						<Grid item xs={6}>
-							<Paper className={classNames('paper')}>B</Paper>
+							<Paper className={classNames('paper')}>
+							</Paper>
 						</Grid>
 						<Grid item xs={6}>
-							<Paper className={classNames('paper')}>C</Paper>
+							<Paper className={classNames('paper')}>
+								<PollListTile />							
+							</Paper>
 						</Grid>
 						<Grid item xs={6}>
 							<Paper className={classNames('paper')}>D</Paper>
