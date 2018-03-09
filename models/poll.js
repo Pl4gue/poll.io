@@ -18,3 +18,8 @@ const PollSchema = new Schema({
     }]
   }]
 })
+
+// Create collection and add Schema
+const Poll = mongoose.model('Poll', PollSchema)
+
+module.exports = Poll
