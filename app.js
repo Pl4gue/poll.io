@@ -10,7 +10,7 @@ let postVote = require('./routes/postVote');
 const app = express();
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 app.get('/favicon.ico', (req, res) => {
 	res.sendFile(path.join(__dirname+'/client/build/favicon.ico'));
