@@ -89,22 +89,22 @@ class LandingDrawer extends React.Component {
         <List>
           <ListItem button onClick={() => this.handleChangeContentContainer('dashboard')}>
             <PollIcon />
-            <ListItemText primary={Strings.dashboard} />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.dashboard} />
           </ListItem>
           <ListItem button onClick={() => this.handleChangeContentContainer('newPoll')}>
             <AddIcon />
-            <ListItemText primary={Strings.newPoll} />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.newPoll} />
           </ListItem>
         </List>
         <Divider />
         <List>
           <ListItem button onClick={() => this.handleChangeContentContainer('settings')}>
             <SettingsIcon />
-            <ListItemText primary={Strings.settings} />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.settings} />
           </ListItem>
           <ListItem button onClick={() => this.handleChangeContentContainer('about')}>
             <ComputerIcon />
-            <ListItemText primary={Strings.about} />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.about} />
           </ListItem>
         </List>
       </Drawer>
