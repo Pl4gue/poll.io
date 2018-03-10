@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Vote = require('../models/vote.js');
 
 /* GET users listing. */
-router.post('/postvote', function(req, res, next) {
+router.post('/', function(req, res, next) {
 	const newVote = {
 		req.body
 	}

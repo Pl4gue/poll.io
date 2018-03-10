@@ -4,7 +4,7 @@ var router = express.Router();
 const Poll = require('../models/poll.js');
 
 /* GET users listing. */
-router.post('/postpoll', function(req, res, next) {
+router.post('/', function(req, res, next) {
   const newPoll = {
 		req.body
 	}
