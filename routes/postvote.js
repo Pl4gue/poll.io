@@ -6,9 +6,8 @@ const Vote = require('../models/vote.js');
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
-	const newVote = {
-		req.body
-	}
+	const newVote = req.body;
+	
 
 	new Vote(newVote).save().then(vote => {
 		//TODO: trigger socket.io
