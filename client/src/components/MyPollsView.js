@@ -6,12 +6,12 @@ import 'react-select/dist/react-select.css';
 
 import { Grid, Paper } from 'material-ui';
 
-import PollTile from './dashboard/PollTile';
-import DetailsTile from './dashboard/DetailsTile';
+import PollTile from './myPolls/PollTile';
+import DetailsTile from './myPolls/DetailsTile';
 
-import '../styles/css/DashboardView.css';
+import '../styles/css/MyPollsView.css';
 
-export default class DashboardView extends Component {
+export default class MyPollsView extends Component {
     state = {
     	selectedOption: '',
 	}

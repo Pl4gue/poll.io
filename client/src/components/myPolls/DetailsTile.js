@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import '../../styles/css/dashboard/DetailsTile.css';
+import '../../styles/css/myPolls/DetailsTile.css';
 
 export default class DetailsTile extends React.Component {
 	render() {

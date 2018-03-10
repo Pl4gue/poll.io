@@ -12,7 +12,7 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import ComputerIcon from 'material-ui-icons/Computer';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
-import DashboardView from './DashboardView';
+import MyPollsView from './MyPollsView';
 import NewPollView from './NewPollView';
 import SettingsView from './SettingsView';
 import AboutView from './AboutView';
@@ -24,8 +24,8 @@ class LandingDrawer extends React.Component {
   state = {
     open: false,
     anchor: 'left',
-    contentView: 'dashboard',
-    appBarTitle: Strings.dashboard
+    contentView: 'myPolls',
+    appBarTitle: Strings.myPolls
   };
 
   handleDrawerOpen = () => {
@@ -45,8 +45,8 @@ class LandingDrawer extends React.Component {
   handleChangeContentContainer = (dest) => {
     let title;
     switch (dest) {
-      case 'dashboard':
-        title = Strings.dashboard
+      case 'myPolls':
+        title = Strings.myPolls
         break;
       case 'newPoll':
         title = Strings.newPoll
@@ -58,7 +58,7 @@ class LandingDrawer extends React.Component {
         title = Strings.about
         break;
       default:
-        title = Strings.dashboard
+        title = Strings.myPolls
     }
     this.setState({
       contentView: dest,
@@ -87,9 +87,9 @@ class LandingDrawer extends React.Component {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={() => this.handleChangeContentContainer('dashboard')}>
+          <ListItem button onClick={() => this.handleChangeContentContainer('myPolls')}>
             <PollIcon />
-            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.dashboard} />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.myPolls} />
           </ListItem>
           <ListItem button onClick={() => this.handleChangeContentContainer('newPoll')}>
             <AddIcon />
@@ -113,7 +113,7 @@ class LandingDrawer extends React.Component {
     const contentContainer = () => {
       switch (this.state.contentView) {
         case 'polls':
-          return ( <DashboardView /> )
+          return ( <MyPollsView /> )
         case 'newPoll':
           return ( <NewPollView /> )
         case 'settings':
@@ -121,7 +121,7 @@ class LandingDrawer extends React.Component {
         case 'about':
           return ( <AboutView /> )
         default:
-          return ( <DashboardView /> )
+          return ( <MyPollsView /> )
       }
     }
 
