@@ -5,15 +5,18 @@ import classNames from 'classnames';
 import { Drawer, AppBar, Toolbar, Typography, Divider, IconButton } from 'material-ui';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
-import AddIcon from 'material-ui-icons/Add';
 import PollIcon from 'material-ui-icons/Poll';
-import MenuIcon from 'material-ui-icons/Menu';
+import AddIcon from 'material-ui-icons/Add';
+import VoteIcon from 'material-ui-icons/RateReview';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ComputerIcon from 'material-ui-icons/Computer';
+
+import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
 import MyPollsView from './MyPollsView';
 import NewPollView from './NewPollView';
+import VoteView from './VoteView';
 import SettingsView from './SettingsView';
 import AboutView from './AboutView';
 
@@ -50,6 +53,9 @@ class LandingDrawer extends React.Component {
         break;
       case 'newPoll':
         title = Strings.newPoll
+        break;
+      case 'vote':
+        title = Strings.vote
         break;
       case 'settings':
         title = Strings.settings
@@ -97,6 +103,11 @@ class LandingDrawer extends React.Component {
           </ListItem>
         </List>
         <Divider />
+        <ListItem button onClick={() => this.handleChangeContentContainer('vote')}>
+            <VoteIcon />
+            <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.vote} />
+          </ListItem>
+        <Divider />
         <List>
           <ListItem button onClick={() => this.handleChangeContentContainer('settings')}>
             <SettingsIcon />
@@ -116,6 +127,8 @@ class LandingDrawer extends React.Component {
           return ( <MyPollsView /> )
         case 'newPoll':
           return ( <NewPollView /> )
+        case 'vote':
+          return ( <VoteView /> )
         case 'settings':
           return ( <SettingsView /> )
         case 'about':
