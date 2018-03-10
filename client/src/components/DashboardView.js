@@ -1,92 +1,53 @@
 import React, { Component } from 'react';
-import {Bar} from 'react-chartjs-2';
 import classNames from 'classnames';
+
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 import { Grid, Paper } from 'material-ui';
 
-import PollListTile from './dashboard/PollListTile';
+import PollTile from './dashboard/PollTile';
+import DetailsTile from './dashboard/DetailsTile';
 
 import '../styles/css/DashboardView.css';
 
 export default class DashboardView extends Component {
     state = {
-    	votes: []
-    }
-
-    componentDidMount() {
-    	fetch('/getPoll')
-    		.then(res => res.json())
-    		.then(votes => this.setState({
-    			votes
-			}));
+    	selectedOption: '',
 	}
 	
-	render() {  
-		let [t1, t2, t3] = [0, 0, 0]
-		this.state.votes.forEach(item => {
-			switch (item.vote.vote) {
-				case "Windows":
-					t1++;
-					break;
-				case "Linux":
-					t2++;
-					break;
-				case "OS X":
-					t3++;
-					break;
-				default:
-					break;
-			}
-		});
+    handleChange = (selectedOption) => {
+    	this.setState({
+    		selectedOption
+    	});
+    }
 
-		const data = {
-			labels: ['Windows', 'Linux', 'OS X'],
-			datasets: [{
-				label: 'OS Poll',
-				backgroundColor: ['#00b894', '#00cec9', '#6c5ce7'],
-				borderWidth: 1,
-				hoverBackgroundColor: ['#55efc4', '#81ecec', '#a29bfe'],
-				hoverBorderColor: '#dfe6e9',
-				data: [t1,t2,t3],
-			}]
-		};
+	render() {  
+		const { selectedOption } = this.state;
+		const value = selectedOption && selectedOption.value;
 
 		return(
 			<div className={classNames('root')}>
+				<Select
+						name="Select Poll"
+						className={classNames('selector')}
+						value={value}
+						onChange={this.handleChange}
+						options={[
+						{ value: 'one', label: 'One' },
+						{ value: 'two', label: 'Two' },
+						]} />
 				<Grid container spacing={24} direction={'row'}>
 					<Grid container direction={'row'}>
-						<Grid item xs={12} sm={6}>
+						<Grid item xs={12} sm={8}>
 							<Paper className={classNames('paper')}>
-								<Bar
-									data={data}
-									width={100}
-									height={50}
-									options={{
-										scales: {
-											yAxes: [{
-												display: true,
-												ticks: {
-													beginAtZero: true,
-													suggestedMax: 20,
-												}
-											}]
-										},
-										maintainAspectRatio: false
-									}}
-								/>
+								<PollTile />
 							</Paper>
 						</Grid>
-						<Grid item xs={12} sm={6}>
+						<Grid item xs={12} sm={4}>
 							<Paper className={classNames('paper')}>
+								<DetailsTile />
 							</Paper>
-						</Grid>
-						<Grid item xs={12} sm={6}>
-							<Paper className={classNames('paper')}>
-								<PollListTile />							
-							</Paper>
-						</Grid>
-						<Grid item xs={12} sm={6}>
-							<Paper className={classNames('paper')}>D</Paper>
 						</Grid>
 					</Grid>
 				</Grid>
