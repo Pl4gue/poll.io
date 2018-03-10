@@ -7,7 +7,7 @@ export default class PollTile extends React.Component {
     }
 
     componentDidMount() {
-    	fetch('/getPoll')
+    	fetch('/getpoll')
     		.then(res => res.json())
     		.then(votes => this.setState({
     			votes
