@@ -17,7 +17,7 @@ const app = express();
 require('./config/dbconfig.js');
 
 // Set public folder
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -37,4 +37,10 @@ app.use('/getvotes', getvotes);
 app.use('/postpoll', postpoll);
 app.use('/postvote', postvote);
  
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 module.exports = app;
