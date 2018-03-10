@@ -2,7 +2,7 @@
 poll.io is built on ReactJS on the Front-End and ExpressJS on the Back-End.
 
 ## Local Build Instructions
-Make sure you have either `yarn` or `npm` installed. (We recommend `yarn`)
+Make sure you have either `yarn` or `npm` installed. (Scripts are written for yarn, you'll have to rewrite them if you use npm)
 
 ### Installing all dependencies of the server
 ```
