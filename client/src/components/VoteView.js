@@ -1,6 +1,8 @@
 import React from 'react';
-import { TextField } from 'material-ui';
+import { Paper, TextField, Button } from 'material-ui';
 import classNames from 'classnames';
+
+import PollOptionsTile from './vote/PollOptionsTile';
 
 import '../styles/css/VoteView.css';
 
@@ -28,7 +30,13 @@ export default class VoteView extends React.Component {
 						onChange={this.handleChange('pollID')}
 						margin="normal"
 					/>
+					<Button variant="raised" className={classNames('pollIDButton')}>
+						Show Poll
+					</Button>
 				</form>
+				<Paper className={classNames('pollOptionsPaper')}>
+					<PollOptionsTile />
+				</Paper>
 			</div>
 		);
 	}
