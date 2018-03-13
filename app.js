@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
+const morgan = require('morgan');
 const cors = require('cors');
 const socketio = require('socket.io');
 
@@ -16,8 +17,11 @@ const app = express();
 // DB Config
 require('./config/dbconfig.js');
 
-// Set public folder
+// Serve React production build as public folder
 app.use(express.static(path.join(__dirname, 'client/build/')));
+
+// Logging middleware
+app.use(morgan('combined'));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -26,10 +30,9 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // CORS
 app.use(cors());
 
-// Socket.io
+// TODO Socket.io
 
-// TODO: add getpoll, getpollslisting, postpoll und postvote
-
+// Endpoint Routes
 app.use('/', index);
 app.use('/getpoll', getpoll);
 app.use('/getpollslisting', getpollslisting);
@@ -37,10 +40,9 @@ app.use('/getvotes', getvotes);
 app.use('/postpoll', postpoll);
 app.use('/postvote', postvote);
  
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// catchall handler - return index page on any unknown request
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+	res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 module.exports = app;
