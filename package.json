@@ -16,9 +16,11 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "mongodb": "^3.0.4",
     "mongoose": "^5.0.9",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "esformatter": "^0.10.0",
