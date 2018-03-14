@@ -5,10 +5,9 @@ const mongoose = require('mongoose');
 const Vote = require('../models/vote.js');
 
 /* GET users listing. */
-router.post('/postvote', function(req, res, next) {
-	const newVote = {
-		req.body
-	}
+router.post('/', function(req, res, next) {
+	const newVote = req.body;
+	
 
 	new Vote(newVote).save().then(vote => {
 		//TODO: trigger socket.io

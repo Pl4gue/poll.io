@@ -1,10 +1,15 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+import { Route, withRouter } from 'react-router-dom';
+>>>>>>> master
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import { Drawer, AppBar, Toolbar, Typography, Divider, IconButton } from 'material-ui';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
+<<<<<<< HEAD
 import AddIcon from 'material-ui-icons/Add';
 import PollIcon from 'material-ui-icons/Poll';
 import MenuIcon from 'material-ui-icons/Menu';
@@ -27,6 +32,30 @@ class LandingDrawer extends React.Component {
     contentView: 'dashboard',
     appBarTitle: Strings.dashboard
   };
+=======
+import PollIcon from 'material-ui-icons/Poll';
+import AddIcon from 'material-ui-icons/Add';
+import VoteIcon from 'material-ui-icons/RateReview';
+import SettingsIcon from 'material-ui-icons/Settings';
+import ComputerIcon from 'material-ui-icons/Computer';
+
+import MenuIcon from 'material-ui-icons/Menu';
+import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
+
+import Strings from '../assets/Strings';
+import theme from '../styles/LandingDrawerStyle';
+
+class LandingDrawer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      anchor: 'left',
+      contentView: 'myPolls',
+      appBarTitle: this.props.title
+    };
+  }
+>>>>>>> master
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -42,6 +71,7 @@ class LandingDrawer extends React.Component {
     });
   };
 
+<<<<<<< HEAD
   handleChangeContentContainer = (dest) => {
     let title;
     switch (dest) {
@@ -66,6 +96,43 @@ class LandingDrawer extends React.Component {
     });
     this.handleDrawerClose();
   }
+=======
+  pollsListItem = withRouter(({ history }) => (
+    <ListItem button onClick={() => { history.push('/') }}>
+      <PollIcon />
+      <ListItemText primary={Strings.myPolls} />
+    </ListItem>
+  ));
+
+  newListItem = withRouter(({ history }) => (
+    <ListItem button onClick={() => { history.push('/new') }}>
+      <AddIcon />
+      <ListItemText primary={Strings.newPoll} />
+    </ListItem>
+  ));
+
+  voteListItem = withRouter(({ history }) => (
+    <ListItem button onClick={() => { history.push('/vote') }}>
+      <VoteIcon />
+      <ListItemText primary={Strings.vote} />
+    </ListItem>
+  ));
+
+  settingsListItem = withRouter(({ history }) => (
+    <ListItem button onClick={() => { history.push('/settings') }}>
+      <SettingsIcon />
+      <ListItemText primary={Strings.settings} />
+    </ListItem>
+  ));
+
+  aboutListItem = withRouter(({ history }) => (
+    <ListItem button onClick={() => { history.push('/about') }}>
+      <ComputerIcon />
+      <ListItemText primary={Strings.about} />
+    </ListItem>
+  ));
+
+>>>>>>> master
 
   render() {
     const { classes } = this.props;
@@ -87,6 +154,7 @@ class LandingDrawer extends React.Component {
         </div>
         <Divider />
         <List>
+<<<<<<< HEAD
           <ListItem button onClick={() => this.handleChangeContentContainer('dashboard')}>
             <PollIcon />
             <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.dashboard} />
@@ -106,10 +174,22 @@ class LandingDrawer extends React.Component {
             <ComputerIcon />
             <ListItemText classes={{ primary: classes.drawerItemText }} primary={Strings.about} />
           </ListItem>
+=======
+          <this.pollsListItem />
+          <this.newListItem />
+        </List>
+        <Divider />
+          <this.voteListItem />
+        <Divider />
+        <List>
+          <this.settingsListItem />
+          <this.aboutListItem />
+>>>>>>> master
         </List>
       </Drawer>
     );
 
+<<<<<<< HEAD
     const contentContainer = () => {
       switch (this.state.contentView) {
         case 'polls':
@@ -125,6 +205,8 @@ class LandingDrawer extends React.Component {
       }
     }
 
+=======
+>>>>>>> master
     let before = null;
     let after = null;
 
@@ -167,7 +249,11 @@ class LandingDrawer extends React.Component {
           >
             <div className={classes.drawerHeader} />
             <Typography>{
+<<<<<<< HEAD
               contentContainer()
+=======
+              this.props.contentContainer
+>>>>>>> master
             }</Typography>
           </main>
           {after}
