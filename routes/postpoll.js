@@ -4,15 +4,10 @@ var router = express.Router();
 const Poll = require('../models/poll.js');
 
 /* GET users listing. */
-<<<<<<< HEAD
 router.post('/postpoll', function(req, res, next) {
   const newPoll = {
 		req.body
 	}
-=======
-router.post('/', function (req, res, next) {
-	const newPoll = req.body;
->>>>>>> master
 
 	new Poll(newPoll).save().then(poll => {
 		//TODO: trigger socket.io
@@ -20,17 +15,7 @@ router.post('/', function (req, res, next) {
 		console.log(poll);
 	});
 
-<<<<<<< HEAD
 	return res.json({ success: true, message: 'New poll added!' });
 });
 
 module.exports = router;
-=======
-	return res.json({
-		success: true,
-		message: 'New poll added!'
-	});
-});
-
-module.exports = router;
->>>>>>> master

@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.3.4",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.2",
@@ -11,17 +11,11 @@
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-select": "^1.2.1"
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/sass -o src/styles/css && node-sass-chokidar src/index.scss -o src/",
-<<<<<<< HEAD
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/sass -o src/styles/sass --watch --recursive",
-=======
-    "watch-css": "npm run build-css && node-sass-chokidar src/styles/sass -o src/styles/css --watch --recursive",
->>>>>>> master
     "start": "react-scripts start",
     "serve": "serve -s build -p 3000",
     "build": "yarn build-css && react-scripts build",
