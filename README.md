@@ -18,7 +18,7 @@ yarn install
 ### Start Express server and React frontend
 Before doing this step, make sure you have nothing running on both port 5000 and port 3000.
 
-You may change these ports in `package.json` by replacing 
+You may change these ports in `package.json` by replacing
 ```
 var port = normalizePort(process.env.PORT || '5000');
 ```
@@ -33,7 +33,7 @@ yarn dev
 For live Sass-compiling:
 ```
 cd client/
-yarn watch-css 
+yarn watch-css
 ```
 
 ### See Local build
