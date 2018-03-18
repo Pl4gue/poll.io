@@ -1,23 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const mongoose = require('mongoose');
+
+const Poll = require('../models/poll.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-	// TODO: get data from database
-	res.json([{
-		id: 1,
-		vote: {
-			author: 'Quentin Oschatz',
-			vote: 'Linux'
-		}
-	}, {
-		id: 2,
-		vote: {
-			author: 'David Wu',
-			vote: 'Windows'
-		}
-	}]);
+    // Get votes from db
+		// TODO: filter by "public" setiing
+    Poll.find({}, {'PollMeta.PollId': 1, 'PollMeta.PollTitle': 1, '_id': 0}).then(polls => res.json({ success: true, polls: polls }));
+
 });
 
 module.exports = router;
