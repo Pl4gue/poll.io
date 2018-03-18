@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "concurrently \"cd client/ && yarn watch-css && yarn start\" \"yarn start-mongo && yarn dev-server\"",
+    "dev": "concurrently \"cd client/ && yarn start\" \"yarn start-mongo\" \"yarn dev-server\" \"cd client/ && yarn watch-css\"",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
-    "start-mongo":"mongod --directoryperdb --dbpath ~/mongodb/data/db --logpath ~/mongodb/logs/mongo.log --logappend",
+    "start-mongo":"mongod --dbpath ~/mongodb/data/db",
     "start-server": "node ./bin/www",
     "dev-server": "nodemon ./bin/www"
   },
