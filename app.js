@@ -19,8 +19,21 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // CORS
 app.use(cors());
 
-// Socket.io
+app.get("", (req, res) => res.send("Hi"));
 
-// TODO: add getpoll, getpollslisting, postpoll und postvote
+// Import routes
+var getpoll = require('./routes/getpoll');
+var getpollslisting = require('./routes/getpollslisting');
+var getvotes = require('./routes/getvotes');
+var index = require('./routes/index');
+var postpoll = require('./routes/postpoll');
+var postvote = require('./routes/postvote');
 
-// Starting server handled by ./bin/www
+app.use('/getpoll', getpoll);
+app.use('/getpollslisting', getpollslisting);
+app.use('/getvotes', getvotes);
+app.use('/', index);
+app.use('/postpoll', postpoll);
+app.use('/postvote', postvote);
+
+module.exports = app;

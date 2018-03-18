@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/getpoll', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
 	// TODO: get data from database
 	res.json([{

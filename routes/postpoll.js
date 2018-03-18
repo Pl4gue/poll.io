@@ -4,10 +4,8 @@ var router = express.Router();
 const Poll = require('../models/poll.js');
 
 /* GET users listing. */
-router.post('/postpoll', function(req, res, next) {
-  const newPoll = {
-		req.body
-	}
+router.post('/', function(req, res, next) {
+  const newPoll = req.body;
 
 	new Poll(newPoll).save().then(poll => {
 		//TODO: trigger socket.io
