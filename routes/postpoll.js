@@ -5,6 +5,7 @@ const Poll = require('../models/poll.js');
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
+  
   const newPoll = req.body;
 
 	new Poll(newPoll).save().then(poll => {
