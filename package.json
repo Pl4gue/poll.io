@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "kill-port": "sudo kill $(sudo lsof -t -i:8080)",
     "dev": "concurrently \"cd client/ && yarn start\" \"yarn start-mongo\" \"yarn dev-server\" \"cd client/ && yarn watch-css\"",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
-    "start-mongo":"mongod --dbpath ~/mongodb/data/db",
+    "start-mongo": "mongod --dbpath ~/mongodb/data/db",
     "start-server": "node ./bin/www",
     "dev-server": "nodemon ./bin/www"
   },
@@ -18,10 +19,13 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "jade": "~1.11.0",
-    "mongoose": "^5.0.9",
     "mongodb": "^3.0.4",
-    "firebase-admin": "^5.9.1",
+    "mongoose": "^5.0.9",
     "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-twitter": "^1.0.4",
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.0.4"
   },
