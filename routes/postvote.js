@@ -15,7 +15,7 @@ router.post('/', function(req, res, next) {
 		//Trigger socket.io
     io.emit('vote', vote);
 
-    // Successfully added new vote to db 
+    // Successfully added new vote to db
 		console.log(vote);
 	});
 
