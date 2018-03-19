@@ -14,14 +14,14 @@ export default class DashboardView extends Component {
     }
 
     componentDidMount() {
-    	fetch('/getPoll')
+    	fetch('/getpoll')
     		.then(res => res.json())
     		.then(votes => this.setState({
     			votes
 			}));
 	}
-	
-	render() {  
+
+	render() {
 		let [t1, t2, t3] = [0, 0, 0]
 		this.state.votes.forEach(item => {
 			switch (item.vote.vote) {
@@ -82,7 +82,7 @@ export default class DashboardView extends Component {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<Paper className={classNames('paper')}>
-								<PollListTile />							
+								<PollListTile />
 							</Paper>
 						</Grid>
 						<Grid item xs={12} sm={6}>
@@ -92,5 +92,5 @@ export default class DashboardView extends Component {
 				</Grid>
 			</div>
 		);
-	} 
+	}
 }

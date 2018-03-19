@@ -5,12 +5,14 @@ const Poll = require('../models/poll.js');
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
-  
+
   const newPoll = req.body;
 
 	new Poll(newPoll).save().then(poll => {
-		//TODO: trigger socket.io
-		// Successfully added poll to db
+		//Trigger socket.io
+    io.emit('addpoll', poll);
+
+		// Successfully added new poll to db
 		console.log(poll);
 	});
 
