@@ -33,53 +33,53 @@ app.use(passport.initialize());
 
 // Passport user (de)-serialisation to avoid transmitting user info after login
 passport.serializeUser(function(user, callback) {
-  callback(null, user);
+	callback(null, user);
 });
 
 passport.deserializeUser(function(obj, callback) {
-  callback(null, obj);
+	callback(null, obj);
 });
 
 // Configure Github OAuth
 passport.use(new GitHubStrategy({
-    clientID: '2ec1ebabf5ae9436245e',
-    clientSecret: config.GithubSecret,
-    callbackURL: "http://poll.io.flxwu.com/auth/github/callback" //TODO: Change localhost to production host
-  },
-  (accessToken, refreshToken, profile, callback) => {
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return callback(err, user);
-    });
-  }
+	clientID: '2ec1ebabf5ae9436245e',
+	clientSecret: config.GithubSecret,
+	callbackURL: 'http://poll.io.flxwu.com/auth/github/callback' //TODO: Change localhost to production host
+},
+(accessToken, refreshToken, profile, callback) => {
+	User.findOrCreate({ githubId: profile.id }, function (err, user) {
+		return callback(err, user);
+	});
+}
 ));
 
 // Configure Google OAuth
 passport.use(new GoogleStrategy({
-    clientID: '575257432848-6dklb9lm820lmpavgsvhkhv5u6mukshu.apps.googleusercontent.com',
-    clientSecret: config.GoogleSecret,
-    callbackURL: "http://poll.io.flxwu.com/auth/google/callback"
-  },
-  (accessToken, refreshToken, profile, callback) => {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return callback(err, user);
-    });
-  }
+	clientID: '575257432848-6dklb9lm820lmpavgsvhkhv5u6mukshu.apps.googleusercontent.com',
+	clientSecret: config.GoogleSecret,
+	callbackURL: 'http://poll.io.flxwu.com/auth/google/callback'
+},
+(accessToken, refreshToken, profile, callback) => {
+	User.findOrCreate({ googleId: profile.id }, function (err, user) {
+		return callback(err, user);
+	});
+}
 ));
 
 // Configure Twitter OAuth
 passport.use(new TwitterStrategy({
-    consumerKey: '6pXHPzq1acDs60wXozYjEvfY9',
-    consumerSecret: config.TwitterSecret,
-    callbackURL: "http://poll.io.flxwu.com/auth/twitter/callback"
-  },
-  (token, tokenSecret, profile, callback) => {
-    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-      return callback(err, user);
-    });
-  }
+	consumerKey: '6pXHPzq1acDs60wXozYjEvfY9',
+	consumerSecret: config.TwitterSecret,
+	callbackURL: 'http://poll.io.flxwu.com/auth/twitter/callback'
+},
+(token, tokenSecret, profile, callback) => {
+	User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+		return callback(err, user);
+	});
+}
 ));
 
-app.get("", (req, res) => res.send("Hi"));
+app.get('', (req, res) => res.send('Hi'));
 
 // Import routes
 var getpoll = require('./routes/getpoll');
