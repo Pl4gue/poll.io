@@ -1,6 +1,7 @@
 const strings = {
-	'dashboard': 'Dashboard',
+	'myPolls': 'My Polls',
 	'newPoll': 'New Poll',
+	'vote': 'Submit Vote',
 	'settings': 'Settings',
 	'about': 'About poll.io',    
 };

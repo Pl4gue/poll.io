@@ -1,3 +1,5 @@
+import Colors from '../assets/Colors';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -17,7 +19,7 @@ const styles = theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
-		background: 'linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%)'
+		background: Colors.appBarGradient
 	},
 	dynamicAppBarTitle: {
 		fontWeight: 'bold'
@@ -45,7 +47,7 @@ const styles = theme => ({
 	drawerPaper: {
 		position: 'relative',
 		width: drawerWidth,
-		background: 'linear-gradient(180deg, #84fab0 0%, #8fd3f4 100%)'
+		background: Colors.drawerGradient
 	},
 	drawerHeader: {
 		display: 'flex',
@@ -55,11 +57,11 @@ const styles = theme => ({
 		...theme.mixins.toolbar,
 	},
 	drawerItemText: {
-		color: '#222f3e',
+		color: Colors.drawerItemText
 	},
 	content: {
 		flexGrow: 1,
-		background: 'linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);',
+		background: Colors.contentGradient,
 		padding: theme.spacing.unit * 3,
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
