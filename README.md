@@ -1,4 +1,4 @@
-# poll.io - A Fullstack Realtime Polling Application
+# poll.io - A Fullstack Realtime Polling Application [![Build Status](https://travis-ci.com/flxwu/poll.io.svg?token=t7yfDJfqpdD6BQEgp1FN&branch=master)](https://travis-ci.com/flxwu/poll.io)
 poll.io is built on ReactJS on the Front-End and ExpressJS on the Back-End.
 
 ## Local Build Instructions
