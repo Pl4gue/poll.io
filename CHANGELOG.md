@@ -1,3 +1,20 @@
+<a name="0.5.5"></a>
+## [0.5.5](https://github.com/flxwu/poll.io/compare/v0.4.5...v0.5.5) (2018-03-19)
+
+
+### Documentation
+
+* **$changelog:** add conventional changelog ([a605dc9](https://github.com/flxwu/poll.io/commit/a605dc9))
+
+
+### BREAKING CHANGES
+
+* **$changelog:** rewrite recent history to adapt angular commit conventions
+	Now using the Angular Project Commit Conventions from
+	https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type
+
+
+
 <a name="0.4.5"></a>
 ## [0.4.5](https://github.com/flxwu/poll.io/compare/4e63b6e...v0.4.5) (2018-03-19)
 
