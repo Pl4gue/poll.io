@@ -110,9 +110,5 @@ app.use('/auth/google/callback', googlecallback);
 app.use('/auth/twitter', twitter);
 app.use('/auth/twitter/callback', twittercallback);
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
-
 // Export app
 module.exports = app;
