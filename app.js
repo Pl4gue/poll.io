@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
+const morgan = require('morgan');
 const cors = require('cors');
 const socketio = require('socket.io');
 const passport = require('passport');
@@ -16,8 +17,11 @@ const app = express();
 // DB Config
 require('./config/dbconfig.js');
 
-// Set public folder
+// Serve React production build as public folder
 app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Logging middleware
+app.use(morgan('combined'));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -80,10 +84,10 @@ passport.use(new TwitterStrategy({
 ));
 
 // Import routes
+var index = require('./routes/index');
 var getpoll = require('./routes/getpoll');
 var getpollslisting = require('./routes/getpollslisting');
 var getvotes = require('./routes/getvotes');
-var index = require('./routes/index');
 var postpoll = require('./routes/postpoll');
 var postvote = require('./routes/postvote');
 var github = require('./routes/auth/github');
@@ -93,10 +97,10 @@ var googlecallback = require('./routes/auth/googlecallback');
 var twitter = require('./routes/auth/twitter');
 var twittercallback = require('./routes/auth/twittercallback');
 
+app.use('/', index);
 app.use('/getpoll', getpoll);
 app.use('/getpollslisting', getpollslisting);
 app.use('/getvotes', getvotes);
-app.use('/', index);
 app.use('/postpoll', postpoll);
 app.use('/postvote', postvote);
 app.use('/auth/github', github);
@@ -105,6 +109,10 @@ app.use('/auth/google', google);
 app.use('/auth/google/callback', googlecallback);
 app.use('/auth/twitter', twitter);
 app.use('/auth/twitter/callback', twittercallback);
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 // Export app
 module.exports = app;
