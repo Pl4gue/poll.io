@@ -1,10 +1,6 @@
 {
   "name": "client",
-<<<<<<< HEAD
-  "version": "0.3.4",
-=======
   "version": "0.4.5",
->>>>>>> master
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.2",
