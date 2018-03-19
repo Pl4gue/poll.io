@@ -4,6 +4,8 @@ node_js:
 install:
 - yarn install
 - cd client/ && yarn install
+script:
+- cd client/ && yarn build
 deploy:
   provider: heroku
   api_key:

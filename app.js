@@ -10,7 +10,7 @@ const app = express();
 require('./config/dbconfig.js');
 
 // Set public folder
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
