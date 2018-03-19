@@ -12,10 +12,8 @@ router.post('/', function(req, res, next) {
 	const newVote = req.body;
 
 	new Vote(newVote).save().then(vote => {
-		//Trigger socket.io
-		io.emit('vote', vote);
-		
-		// Successfully added new vote to db
+		//TODO: trigger socket.io
+		// Successfully added nre vote to db
 		console.log(vote);
 	});
 

@@ -25,13 +25,8 @@ var server = http.createServer(app);
 */
 var io = require('socket.io')(server);
 
-io.on('connection', (socket) => {
-	socket.on('vote', (vote) => {
-		console.log("New vote added!")
-	});
-	socket.on('addpoll', (poll) => {
-		console.log("New poll added!")
-	});
+io.on('connection', function() {
+  console.log("Socket.io connection made...");
 });
 
 
