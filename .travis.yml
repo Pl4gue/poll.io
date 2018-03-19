@@ -3,7 +3,7 @@ node_js:
 - node
 install:
 - yarn install
-- cd client/ && yarn install
+- cd client/ && yarn install && cd ../
 script:
 - cd client/ && yarn build
 deploy:
