@@ -17,7 +17,7 @@ const app = express();
 require('./config/dbconfig.js');
 
 // Set public folder
-app.use(express.static(path.join(__dirname, 'client/build/')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Bodyparser middleware
 app.use(bodyparser.json());
@@ -78,8 +78,6 @@ passport.use(new TwitterStrategy({
 	});
 }
 ));
-
-app.get('', (req, res) => res.send('Hi'));
 
 // Import routes
 var getpoll = require('./routes/getpoll');
