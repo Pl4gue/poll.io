@@ -7,7 +7,7 @@ export default class PollTile extends React.Component {
     }
 
     componentDidMount() {
-    	fetch('/getpoll')
+    	fetch('/getpoll?poll=0')
     		.then(res => res.json())
     		.then(votes => this.setState({
     			votes
@@ -15,7 +15,8 @@ export default class PollTile extends React.Component {
 	}
     
     render() {
-        let [t1, t2, t3] = [0, 0, 0]
+		let [t1, t2, t3] = [0, 0, 0]
+		/* 
 		this.state.votes.forEach(item => {
 			switch (item.vote.vote) {
 				case "Windows":
@@ -30,7 +31,7 @@ export default class PollTile extends React.Component {
 				default:
 					break;
 			}
-		});
+		}); */
 
 		const data = {
 			labels: ['Windows', 'Linux', 'OS X'],
@@ -40,7 +41,7 @@ export default class PollTile extends React.Component {
 				borderWidth: 1,
 				hoverBackgroundColor: ['#55efc4', '#81ecec', '#a29bfe'],
 				hoverBorderColor: '#dfe6e9',
-				data: [t1,t2,t3],
+				data: [3,2,5],
 			}]
         };
         
