@@ -33,7 +33,13 @@ io.on('connection', function() {
 		socket.on('addpoll', (poll) => {
 			console.log('New poll added!');
 		}); 
-	});
+	}); 
+}); 
+
+// Make io accessible to our router
+app.use(function(req,res,next){
+	req.io = io;
+	next();
 });
 
 
