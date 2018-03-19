@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5000');
+var port = normalizePort(process.env.PORT || '8080');
 
 /**
  * Create HTTP server.
@@ -27,12 +27,13 @@ var io = require('socket.io')(server);
 
 io.on('connection', function() {
 	io.on('connection', (socket) => {
-  socket.on('vote', (vote) => {
-    console.log("New vote added!")
-  });
-  socket.on('addpoll', (poll) => {
-    console.log("New poll added!")
-  }); 
+		socket.on('vote', (vote) => {
+			console.log('New vote added!');
+		});
+		socket.on('addpoll', (poll) => {
+			console.log('New poll added!');
+		}); 
+	});
 });
 
 
