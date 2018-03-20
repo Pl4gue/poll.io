@@ -28,6 +28,7 @@ class LandingDrawer extends React.Component {
       appBarTitle: this.props.title
     };
   }
+  
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -42,6 +43,7 @@ class LandingDrawer extends React.Component {
       anchor: event.target.value,
     });
   };
+
 
   pollsListItem = withRouter(({ history }) => (
     <ListItem button onClick={() => { history.push('/') }}>
