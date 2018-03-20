@@ -18,4 +18,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # css files
-*.css
+/src/*.css
+/src/styles/css
+/src/assets/*.css
