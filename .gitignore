@@ -55,6 +55,3 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-config/secrets.json
-# Password configs
