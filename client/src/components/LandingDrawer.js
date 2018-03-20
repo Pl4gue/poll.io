@@ -103,7 +103,9 @@ class LandingDrawer extends React.Component {
           <this.newListItem />
         </List>
         <Divider />
-          <this.voteListItem />
+          <List>
+            <this.voteListItem />
+          </List>
         <Divider />
         <List>
           <this.settingsListItem />
