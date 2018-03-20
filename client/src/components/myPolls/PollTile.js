@@ -15,7 +15,6 @@ export default class PollTile extends React.Component {
 	}
     
     render() {
-		let [t1, t2, t3] = [0, 0, 0]
 		/* 
 		this.state.votes.forEach(item => {
 			switch (item.vote.vote) {
